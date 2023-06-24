@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import PasswordForm from "./PasswordForm";
+import TeamPoints from "./TeamPoints";
+import Trading from "./Trading";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<Navigate to="/PasswordForm" />} />
+        <Route path="/PasswordForm" element={<PasswordForm />} />
+        <Route path="/TeamPoints" element={<TeamPoints />} />
+        <Route path="/Trading" element={<Trading />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
